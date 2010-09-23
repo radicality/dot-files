@@ -171,7 +171,7 @@ fi
 
 # if we have tmux
 
-if which tmux; then
+if [[ "$HOST" == "delta.local" ]]; then
     if [[ "$TMUX" == "" ]]; then if tmux has-session; then exec tmux -2 -u attach; else exec tmux -2 -u new; fi; fi
 fi
 
