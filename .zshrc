@@ -171,7 +171,7 @@ fi
 
 # if we have tmux
 
-if which tmux &>/dev/null; then
+if which tmux; then
     if [[ "$TMUX" == "" ]]; then if tmux has-session; then exec tmux -2 -u attach; else exec tmux -2 -u new; fi; fi
 fi
 
