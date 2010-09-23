@@ -1,8 +1,8 @@
 #!/bin/bash
 
-ln -s .tmux.conf ~/.tmux.conf
-ln -s .vim ~/.vim
-ln -s .vimperator ~/.vimperator
-ln -s .vimrc ~/.vimrc
-ln -s .zsh ~/.zsh
-ln -s .zshrc ~/.zshrc
+ln .tmux.conf ~/.tmux.conf
+ln .vim ~/.vim
+ln .vimperator ~/.vimperator
+ln .vimrc ~/.vimrc
+ln .zsh ~/.zsh
+ln .zshrc ~/.zshrc
