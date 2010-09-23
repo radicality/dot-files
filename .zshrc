@@ -164,7 +164,9 @@ alias flushdns="dscacheutil -flushcache"
 
 ### PROGRAMS TO RUN ###
 
-fortune 	# display a fortune :D
+if [[2 == 2]]; then
+    fortune 	# display a fortune :D
+fi
 
 # Start up tmux
 if [[ "$TMUX" == "" ]]; 
