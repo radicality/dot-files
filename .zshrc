@@ -17,6 +17,7 @@ bindkey "^[s" insert-sudo
 
 zmodload zsh/complist
 autoload -U compinit && compinit
+autoload -U zmv         # mv on stereoids
 
 #------------------------------------------
 # Autocompletion
@@ -125,20 +126,15 @@ export PATH=/Users/rafal/dev/my_scripts:/usr/local/bin:/opt/local/bin:/opt/local
 # For some reason shell was still /bin/bash
 # Even using chsh doesn't fix this :S
 export SHELL="/bin/zsh"
-export TERM="xterm-256color"     # Otherwise vim hilighting is buggy	
 
 
  #	ALIASES 	###
 
-
-
 alias ls='ls -l'
 alias la='ls -la'
 alias psx="ps aux | grep -i" 
-alias preview="/Applications/Preview.app/Contents/MacOS/Preview"
 alias reload="source ~/.zshrc"
-alias vim='mvim -v'
-alias tmux='tmux -2'	# force 256 color support
+alias tmux='tmux -2 -u'	# force 256 color support
 
 
 # SSH
@@ -156,24 +152,26 @@ alias cp="cp -i"
 # Typos
 alias cd..="cd .."
 alias dl="curl -L -O"
-alias flushdns="dscacheutil -flushcache"
 
 
+# Mac OS X (my home system) specific things
 
+if [[ "$OSTYPE" == "darwin10.0" ]]; then
+    alias vim='mvim -v'
+    alias preview="/Applications/Preview.app/Contents/MacOS/Preview"
+    alias flushdns="dscacheutil -flushcache"
+    export TERM="xterm-256color"     # Otherwise vim hilighting is buggyi
 
-
-### PROGRAMS TO RUN ###
-
-if [[2 == 2]]; then
-    fortune 	# display a fortune :D
+    fortune                 # I only want a fortune on my mac
+    
+else
+    PROMPT="%{$fg[yellow]%}[%n@%m] % ~%{$reset_color%} "    # Make the prompt yellow if i'm not on my home system
 fi
 
-# Start up tmux
-if [[ "$TMUX" == "" ]]; 
-	then if tmux has-session; then 
-		exec tmux -2 -u attach; 
-	else 
-		exec tmux -2 -u new;
-		# exec tmux splitw -h -d -p 25 -t 0:1; 
-	fi; 
+
+# if we have tmux
+
+if which tmux &>/dev/null; then
+    if [[ "$TMUX" == "" ]]; then if tmux has-session; then exec tmux -2 -u attach; else exec tmux -2 -u new; fi; fi
 fi
+
