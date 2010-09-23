@@ -169,8 +169,7 @@ else
 fi
 
 
-# if we have tmux
-
+# Could not figure out how to check whether tmux exists, so this is a hack for now
 if [[ "$HOST" == "delta.local" ]]; then
     if [[ "$TMUX" == "" ]]; then if tmux has-session; then exec tmux -2 -u attach; else exec tmux -2 -u new; fi; fi
 fi
