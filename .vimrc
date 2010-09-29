@@ -52,6 +52,25 @@ inoremap <C-U> <C-G>u<C-U>
 set dictionary=/usr/share/dict/words
 let g:pydoc_cmd = "/usr/bin/pydoc2.6"
 
+" SuperTab settings
+let g:SuperTabDefaultCompletionType = "context"
+let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>"     
+
+
+let mapleader = ","
+
+" For quick saving
+vnoremap <leader>w <Esc>:w<CR>
+nnoremap <leader>w <Esc>:w<CR>
+
+nnoremap j gj
+nnoremap k gk
+
+
+" Common misspellings
+ab fro for
+ab teh the
+
 """"""""""""""""""""""""""""
 "           GUI STUFF
 """"""""""""""""""""""""""""
