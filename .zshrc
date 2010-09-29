@@ -160,12 +160,14 @@ if [[ "$OSTYPE" == "darwin10.0" ]]; then
     alias vim='mvim -v'
     alias preview="/Applications/Preview.app/Contents/MacOS/Preview"
     alias flushdns="dscacheutil -flushcache"
+    alias lock="/System/Library/Frameworks/ScreenSaver.framework/Resources/ScreenSaverEngine.app/Contents/MacOS/ScreenSaverEngine"
     export TERM="xterm-256color"     # Otherwise vim hilighting is buggyi
 
     fortune                 # I only want a fortune on my mac
     
 else
     PROMPT="%{$fg[yellow]%}[%n@%m] % ~%{$reset_color%} "    # Make the prompt yellow if i'm not on my home system
+    alias vim='gvim -v' # for other linuxes
 fi
 
 
