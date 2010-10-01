@@ -6,3 +6,4 @@ ln -s ~/dot-files/.vimperator ~/.vimperator
 ln ~/dot-files/.vimrc ~/.vimrc
 ln -s ~/dot-files/.zsh ~/.zsh
 ln ~/dot-files/.zshrc ~/.zshrc
+ln ~/dot-files/.vimperatorrc ~/.vimperatorrc
