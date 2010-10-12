@@ -57,6 +57,10 @@ let g:SuperTabDefaultCompletionType = "context"
 let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>"     
 
 
+let Tlist_Ctags_Cmd='/opt/local/bin/ctags'
+
+
+
 let mapleader = ","
 
 " For quick saving
@@ -84,9 +88,9 @@ if &t_Co > 2 || has("gui_running")
   	set hlsearch
 	set background=dark
 
-  	if &t_Co >= 256
+  	" if &t_Co >= 256
 		 colorscheme darkspectrum 
-	endif
+	" endif
 endif
 
 if has("autocmd")
