@@ -53,7 +53,7 @@ set dictionary=/usr/share/dict/words
 let g:pydoc_cmd = "/usr/bin/pydoc2.6"
 
 " SuperTab settings
-let g:SuperTabDefaultCompletionType = "context"
+" let g:SuperTabDefaultCompletionType = "context"
 let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>"     
 
 
@@ -102,6 +102,11 @@ if has("autocmd")
   " autocmd FocusLost * :wa  " auto-save when vim loses focus
 
     let g:pydiction_location = '~/.vim/pydiction/complete-dict'
+
+    let g:syntastic_enable_signs=1
+    set statusline+=%#warningmsg#
+    set statusline+=%{SyntasticStatuslineFlag()}
+    set statusline+=%*
 
   " Put these in an autocmd group, so that we can delete them easily.
   augroup vimrcEx
