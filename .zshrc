@@ -195,6 +195,7 @@ if [[ "$OSTYPE" == "darwin10.0" ]]; then
 else
     PROMPT="%{$fg[yellow]%}[%n@%m] % ~%{$reset_color%} "    # Make the prompt yellow if i'm not on my home system
     alias vim='gvim -v' # for other linuxes
+    alias lpr='lpr -P ICTMono-2s'   # for printing, duplex, staples
 fi
 
 
