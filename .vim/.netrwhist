@@ -1,7 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =5
-let g:netrw_dirhist_1='/Users/rafal'
-let g:netrw_dirhist_2='/Users/rafal/.vimperator'
-let g:netrw_dirhist_3='/Users/rafal/dev/messing/python/dicts'
-let g:netrw_dirhist_4='/Users/rafal/school/year2/dev/c/cw1'
-let g:netrw_dirhist_5='/Users/rafal/dot-files/.git'
