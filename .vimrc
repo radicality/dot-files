@@ -86,7 +86,7 @@ endif
 if &t_Co > 2 || has("gui_running")
   	syntax on
   	set hlsearch
-	set background=dark
+	"set background=dark
 
   	" if &t_Co >= 256
 		 colorscheme darkspectrum 
