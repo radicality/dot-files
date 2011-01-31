@@ -180,6 +180,8 @@ alias cd..="cd .."
 alias dl="curl -L -O"
 
 
+alias imount='sshfs rs2909@shell2.doc.ic.ac.uk:/homes/rs2909/year2/ ~/dev/sshfs/Imperial' 
+
 # Mac OS X (my home system) specific things
 
 if [[ "$OSTYPE" == "darwin10.0" ]]; then
@@ -188,7 +190,9 @@ if [[ "$OSTYPE" == "darwin10.0" ]]; then
     alias preview="/Applications/Preview.app/Contents/MacOS/Preview"
     alias flushdns="dscacheutil -flushcache"
     alias lock="/System/Library/Frameworks/ScreenSaver.framework/Resources/ScreenSaverEngine.app/Contents/MacOS/ScreenSaverEngine"
-    export TERM="xterm-256color"     # Otherwise vim hilighting is buggyi
+    alias emacs='/opt/local/bin/emacs'
+    export TERM="xterm-256color"     # Otherwise vim hilighting is buggy
+    
 
     fortune                 # I only want a fortune on my mac
     
