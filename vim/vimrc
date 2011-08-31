@@ -36,7 +36,6 @@ set backup" keep a backup file
 set backupdir=~/.vim_backups" backup files location
 set directory=~/.vim_swaps" swap files location
 
-
 " Don't use Ex mode, use Q for formatting
 map Q gq
 
@@ -54,6 +53,11 @@ nnoremap <leader>w <Esc>:w<CR>
 nnoremap j gj
 nnoremap k gk
 
+nnoremap <leader>n :NERDTreeToggle<CR>
+nnoremap <leader>t :TagbarToggle<CR>
+
+let g:SuperTabDefaultCompletionType = "context"
+let g:tagbar_ctags_bin = "/usr/local/Cellar/ctags/5.8/bin/ctags"
 
 " Common misspellings
 ab fro for
