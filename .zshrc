@@ -9,12 +9,6 @@ setopt AUTO_CD
 # If I type cd and then cd again, only save the last one
 setopt HIST_IGNORE_DUPS
 
-# Alt+S to insert sudo at beginning of line
-insert_sudo () { zle beginning-of-line; zle -U "sudo " }
-zle -N insert-sudo insert_sudo
-bindkey "^[s" insert-sudo
-
-
 zmodload zsh/complist
 autoload -U compinit && compinit
 autoload -U zmv         # mv on stereoids
@@ -139,18 +133,22 @@ extract () {
 
 # The below scripts seem to not work like i want
 #
-. ~/.zsh/mouse.zsh
-zle-toggle-mouse  
+# . ~/.zsh/mouse.zsh
+# zle-toggle-mouse  
 
 
 ### 	  PATH		###
 #export PATH="/Users/rafal/dev/my_scripts:/usr/local/bin:/opt/local/bin:/opt/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/texbin:/usr/X11/bin"
-export PATH=/Users/rafal/.cabal/bin:/Users/rafal/dev/my_scripts:/usr/local/bin:/opt/local/bin:/opt/local/sbin:$PATH
+#export PATH=/Users/rafal/.cabal/bin:/Users/rafal/dev/my_scripts:/usr/local/bin:/opt/local/bin:/opt/local/sbin:$PATH
+export PATH=/Users/rafal/dev/my_scripts:$PATH
+export PYTHONPATH="/usr/local/lib/python2.6/site-packages/"
 # 
 #
 # For some reason shell was still /bin/bash
 # Even using chsh doesn't fix this :S
-export SHELL="/bin/zsh"
+
+
+# export SHELL="/bin/zsh"
 
 
  #	ALIASES 	###
@@ -161,6 +159,7 @@ alias la='ls -la'
 alias psx="ps aux | grep -i" 
 alias reload="source ~/.zshrc"
 alias tmux='tmux -2 -u'	# force 256 color support
+alias runmongo='mongod run --config /usr/local/Cellar/mongodb/1.8.3-x86_64/mongod.conf --rest'
 
 
 # SSH
@@ -179,32 +178,29 @@ alias cp="cp -i"
 alias cd..="cd .."
 alias dl="curl -L -O"
 
-
 alias imount='sshfs rs2909@shell2.doc.ic.ac.uk:/homes/rs2909/year2/ ~/dev/sshfs/Imperial' 
 
 # Mac OS X (my home system) specific things
 
 if [[ "$OSTYPE" == "darwin10.0" ]]; then
-    alias vim='mvim -v'
-    alias vi='mvim -v'
+    #alias vim='mvim -v'
+    #alias vi='mvim -v'
     alias preview="/Applications/Preview.app/Contents/MacOS/Preview"
     alias flushdns="dscacheutil -flushcache"
     alias lock="/System/Library/Frameworks/ScreenSaver.framework/Resources/ScreenSaverEngine.app/Contents/MacOS/ScreenSaverEngine"
-    alias emacs='/opt/local/bin/emacs'
-    export TERM="xterm-256color"     # Otherwise vim hilighting is buggy
+    #export TERM="xterm-256color"     # Otherwise vim hilighting is buggy
     
-
     fortune                 # I only want a fortune on my mac
     
 else
     PROMPT="%{$fg[yellow]%}[%n@%m] % ~%{$reset_color%} "    # Make the prompt yellow if i'm not on my home system
-    alias vim='gvim -v' # for other linuxes
     alias lpr='lpr -P ICTMono-2s'   # for printing, duplex, staples
 fi
 
-
 # Could not figure out how to check whether tmux exists, so this is a hack for now
 if [[ "$HOST" == "delta.local" ]]; then
-    if [[ "$TMUX" == "" ]]; then if tmux has-session; then exec tmux -2 -u attach; else exec tmux -2 -u new; fi; fi
+    # if [[ "$TMUX" == "" ]]; then if tmux has-session; then exec tmux -2 -u attach; else exec tmux -2 -u new; fi; fi
 fi
+
+[[ -s "/Users/rafal/.rvm/scripts/rvm" ]] && source "/Users/rafal/.rvm/scripts/rvm"
 
