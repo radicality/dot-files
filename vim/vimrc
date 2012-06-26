@@ -17,7 +17,9 @@ set tabstop=2" Set tabsize
 set softtabstop=2
 set shiftwidth=2
 set expandtab
+set linebreak
 set ttyfast
+set wrap
 
 set encoding=utf-8" Proper encoding
 set showmode
@@ -50,11 +52,18 @@ let mapleader = ","
 vnoremap <leader>w <Esc>:w<CR>
 nnoremap <leader>w <Esc>:w<CR>
 
+nmap <F8> a<C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR><Esc>
+imap <F8> <C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR>
+
 nnoremap j gj
 nnoremap k gk
 
 nnoremap <leader>n :NERDTreeToggle<CR>
 nnoremap <leader>t :TagbarToggle<CR>
+
+noremap <leader>o <Esc>:CommandT<CR>
+noremap <leader>O <Esc>:CommandTFlush<CR>
+noremap <leader>m <Esc>:CommandTBuffer<CR>
 
 let g:SuperTabDefaultCompletionType = "context"
 let g:tagbar_ctags_bin = "/usr/local/Cellar/ctags/5.8/bin/ctags"
@@ -90,3 +99,19 @@ else
   set autoindent  "if no autoindent
 
 endif
+
+if executable('coffeetags')
+    let g:tagbar_type_coffee = {
+            \ 'ctagsbin' : 'coffeetags',
+            \ 'ctagsargs' : '',
+            \ 'kinds' : [
+            \ 'f:functions',
+            \ 'o:object',
+            \ ],
+            \ 'sro' : ".",
+            \ 'kind2scope' : {
+            \ 'f' : 'object',
+            \ 'o' : 'object',
+            \ }
+            \ }
+  endif"}
