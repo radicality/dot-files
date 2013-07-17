@@ -46,9 +46,6 @@
 [submodule "vim/bundle/TeX-PDF"]
 	path = vim/bundle/TeX-PDF
 	url = git://github.com/vim-scripts/TeX-PDF.git
-[submodule "vim/bundle/syntastic"]
-	path = vim/bundle/syntastic
-	url = https://github.com/scrooloose/syntastic.git
 [submodule "vim/bundle/rename.vim"]
 	path = vim/bundle/rename.vim
 	url = git://github.com/danro/rename.vim.git
