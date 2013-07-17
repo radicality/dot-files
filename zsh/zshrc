@@ -12,8 +12,7 @@ setopt HIST_IGNORE_DUPS
 
 zmodload zsh/complist
 autoload -U compinit && compinit
-autoload -U zmv         # mv on stereoids
-
+autoload -U zmv
 
 #------------------------------------------
 # Autocompletion
@@ -134,9 +133,8 @@ extract () {
 
 
 ### 	  PATH		###
-export PATH=/Users/rafal/dev/my_scripts:/usr/local/share/python:/usr/local/texlive/2010/bin/x86_64-darwin:/Users/rafal/.cabal/bin:$PATH
+export PATH=/Users/rafal/dev/my_scripts:/usr/local/share/python:/usr/local/texlive/2012/bin/x86_64-darwin:/Users/rafal/.cabal/bin:/usr/local/sbin:/usr/local/bin:$PATH
 export PYTHONPATH=/usr/local/lib/python:$PYTHONPATH
-# 
 
 
 
@@ -147,17 +145,13 @@ alias ls='ls -l'
 alias la='ls -la'
 alias psx="ps aux | grep -i" 
 alias reload="source ~/.zshrc"
-alias tmux='tmux -2 -u'	# force 256 color support
-alias runmongo='mongod run --config /usr/local/Cellar/mongodb/2.0.2-x86_64/mongod.conf'
-
-alias dojo='cd ~/dev/classdojo/dojo'
-
 
 # SSH
 
 alias hostmonster="ssh vlixterc@vlixter.com"
 alias doc="shell1.sh"
 alias linode="ssh rafal@178.79.143.168"
+alias fspeech="ssh radicality_rafalio@ssh.phx.nearlyfreespeech.net"
 
 # Play safe!
 alias rm="rm -i"
@@ -168,22 +162,15 @@ alias cp="cp -i"
 alias cd..="cd .."
 alias dl="curl -L -O"
 
-alias imount='sshfs rs2909@shell2.doc.ic.ac.uk:/homes/rs2909/year2/ ~/dev/sshfs/Imperial' 
-
 # Mac OS X (my home system) specific things
 
-if [[ "$OSTYPE" == "darwin11.0" ]]; then
+if [[ "$OSTYPE" == "darwin12.0" ]]; then
     alias preview="/Applications/Preview.app/Contents/MacOS/Preview"
     alias flushdns="dscacheutil -flushcache"
     alias lock="/System/Library/Frameworks/ScreenSaver.framework/Resources/ScreenSaverEngine.app/Contents/MacOS/ScreenSaverEngine"
     alias vim="mvim -v"
-    #export TERM="xterm-256color"     # Otherwise vim hilighting is buggy
-    
-    fortune                 # I only want a fortune on my mac
-    
 else
     PROMPT="%{$fg[yellow]%}[%n@%m] % ~%{$reset_color%} "    # Make the prompt yellow if i'm not on my home system
-    alias lpr='lpr -P ICTMono-2s'   # for printing, duplex, staples
 fi
 
 [[ -s "/Users/rafal/.rvm/scripts/rvm" ]] && source "/Users/rafal/.rvm/scripts/rvm"

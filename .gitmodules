@@ -7,9 +7,6 @@
 [submodule "vim/bundle/nerdcommenter"]
 	path = vim/bundle/nerdcommenter
 	url = git://github.com/scrooloose/nerdcommenter.git
-[submodule "vim/bundle/delmitmate"]
-	path = vim/bundle/delmitmate
-	url = git://github.com/Raimondi/delimitMate.git
 [submodule "vim/bundle/nerdtree"]
 	path = vim/bundle/nerdtree
 	url = https://github.com/scrooloose/nerdtree
@@ -43,3 +40,21 @@
 [submodule "vim/bundle/tagbar"]
 	path = vim/bundle/tagbar
 	url = https://github.com/majutsushi/tagbar
+[submodule "vim/bundle/coffee-check"]
+	path = vim/bundle/coffee-check
+	url = https://github.com/othree/coffee-check.vim
+[submodule "vim/bundle/TeX-PDF"]
+	path = vim/bundle/TeX-PDF
+	url = git://github.com/vim-scripts/TeX-PDF.git
+[submodule "vim/bundle/syntastic"]
+	path = vim/bundle/syntastic
+	url = https://github.com/scrooloose/syntastic.git
+[submodule "vim/bundle/rename.vim"]
+	path = vim/bundle/rename.vim
+	url = git://github.com/danro/rename.vim.git
+[submodule "vim/bundle/vim-pandoc"]
+	path = vim/bundle/vim-pandoc
+	url = https://github.com/vim-pandoc/vim-pandoc.git
+[submodule "vim/bundle/gundo"]
+	path = vim/bundle/gundo
+	url = git@github.com:sjl/gundo.vim.git
