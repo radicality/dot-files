@@ -33,6 +33,7 @@ zstyle ':completion:*:*:kill:*:processes' list-colors "=(#b) #([0-9]#)*=36=31"
 
 # case insensitive completion
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
+zstyle ':completion:*' matcher-list 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
 
 zstyle ':completion:*' verbose yes
 zstyle ':completion:*:descriptions' format '%B%d%b'
@@ -56,7 +57,9 @@ zstyle ':completion:*' file-sort modification reverse
 
 # color code completion!!!!  Wohoo!
 zstyle ':completion:*' list-colors "=(#b) #([0-9]#)*=36=31"
-# foo
+
+
+
 #------------------------------------------
 # Colors
 #------------------------------------------
@@ -89,6 +92,8 @@ bindkey '^[[A' up-line-or-search
 bindkey '^[[D' backward-char
 bindkey '^[[B' down-line-or-search
 bindkey '^[[C' forward-char
+
+bindkey -v # Because vim
 
 setopt no_list_beep
 
@@ -133,10 +138,9 @@ extract () {
 
 
 ### 	  PATH		###
-export PATH=/Users/rafal/dev/my_scripts:/usr/local/share/python:/usr/local/texlive/2012/bin/x86_64-darwin:/Users/rafal/.cabal/bin:/usr/local/sbin:/usr/local/bin:$PATH
+export PATH=/Users/rafal/dev/my_scripts:/usr/local/share/python:/usr/local/texlive/2013/bin/x86_64-darwin:/Users/rafal/.cabal/bin:/usr/local/sbin:/usr/local/bin:$PATH
 export PYTHONPATH=/usr/local/lib/python:$PYTHONPATH
-
-
+export PYTHONSTARTUP=~/.pythonrc
 
  #	ALIASES 	###
 
@@ -145,6 +149,9 @@ alias ls='ls -l'
 alias la='ls -la'
 alias psx="ps aux | grep -i" 
 alias reload="source ~/.zshrc"
+alias ltmux="tmux attach || tmux new"
+alias audiorestart="sudo kill `ps -ax | grep 'coreaudiod' | grep 'sbin' |awk '{print $1}'`"
+
 
 # SSH
 
@@ -164,7 +171,7 @@ alias dl="curl -L -O"
 
 # Mac OS X (my home system) specific things
 
-if [[ "$OSTYPE" == "darwin12.0" ]]; then
+if [[ "$OSTYPE" == "darwin13.0" ]]; then
     alias preview="/Applications/Preview.app/Contents/MacOS/Preview"
     alias flushdns="dscacheutil -flushcache"
     alias lock="/System/Library/Frameworks/ScreenSaver.framework/Resources/ScreenSaverEngine.app/Contents/MacOS/ScreenSaverEngine"
@@ -174,4 +181,7 @@ else
 fi
 
 [[ -s "/Users/rafal/.rvm/scripts/rvm" ]] && source "/Users/rafal/.rvm/scripts/rvm"
+
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 

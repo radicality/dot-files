@@ -17,10 +17,13 @@ set softtabstop=2
 set shiftwidth=2
 set expandtab
 
+set clipboard=unnamed
+
 set wrap
 set linebreak
 set nolist
 set ttyfast
+set ttymouse=xterm2
 
 set encoding=utf-8  " Proper encoding
 set showmode
