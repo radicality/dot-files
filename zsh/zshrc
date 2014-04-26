@@ -59,7 +59,6 @@ zstyle ':completion:*' file-sort modification reverse
 zstyle ':completion:*' list-colors "=(#b) #([0-9]#)*=36=31"
 
 
-
 #------------------------------------------
 # Colors
 #------------------------------------------
@@ -73,7 +72,6 @@ export LSCOLORS=Exfxcxdxbxegedabagacad
 PROMPT='%{$fg[cyan]%}[%n@%m]%{$reset_color%}$(git_super_status) %{$fg[cyan]%}~%{$reset_color%} '
 RPROMPT="[%{$fg[yellow]%}%3c%{$reset_color%}][%{$fg[red]%}%?%{$reset_color%}]" # prompt for right side of screen
 
-export USERWM=`which xmonad`
 export GREP_OPTIONS='--color=auto'
 
 #------------------------------------------
@@ -150,13 +148,10 @@ alias la='ls -la'
 alias psx="ps aux | grep -i" 
 alias reload="source ~/.zshrc"
 alias ltmux="tmux attach || tmux new"
-alias audiorestart="sudo kill `ps -ax | grep 'coreaudiod' | grep 'sbin' |awk '{print $1}'`"
-
 
 # SSH
 
 alias hostmonster="ssh vlixterc@vlixter.com"
-alias doc="shell1.sh"
 alias linode="ssh rafal@178.79.143.168"
 alias fspeech="ssh radicality_rafalio@ssh.phx.nearlyfreespeech.net"
 
@@ -176,6 +171,7 @@ if [[ "$OSTYPE" == "darwin13.0" ]]; then
     alias flushdns="dscacheutil -flushcache"
     alias lock="/System/Library/Frameworks/ScreenSaver.framework/Resources/ScreenSaverEngine.app/Contents/MacOS/ScreenSaverEngine"
     alias vim="mvim -v"
+    alias audiorestart="sudo kill `ps -ax | grep 'coreaudiod' | grep 'sbin' |awk '{print $1}'`"
 else
     PROMPT="%{$fg[yellow]%}[%n@%m] % ~%{$reset_color%} "    # Make the prompt yellow if i'm not on my home system
 fi
@@ -184,4 +180,3 @@ fi
 
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-
