@@ -29,7 +29,7 @@ Plugin 'Shougo/vimproc.vim'
 Plugin 'bling/vim-airline'
 Plugin 'pbrisbin/html-template-syntax'
 Plugin 'bitc/vim-hdevtools'
-" Plugin 'edkolev/tmuxline.vim'
+" Bundle 'edkolev/tmuxline.vim'
 " Plugin 'eagletmt/ghcmod-vim'
 
 " All of your Plugins must be added before the following line
@@ -70,10 +70,6 @@ set laststatus=2
 
 "set textwidth=0
 "set wrapmargin=0
-"
-let g:airline_powerline_fonts = 1
-
-
 
 set history=100" lines of command line history
 set undolevels=100" undo levels
@@ -119,11 +115,9 @@ let g:tagbar_ctags_bin = "/usr/local/Cellar/ctags/5.8/bin/ctags"
 let g:syntastic_haskell_checkers=['hdevtools']
 "let g:syntastic_haskell_checkers=['ghc_mod']
 
-" au BufEnter *.hs compiler ghc
-let g:haddock_browser="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
 
 let g:airline_theme="murmur"
-
+let g:airline_powerline_fonts = 1
 
 " Common misspellings
 ab fro for
