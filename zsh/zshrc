@@ -172,11 +172,10 @@ if [[ "$OSTYPE" == "darwin13.0" ]]; then
     alias lock="/System/Library/Frameworks/ScreenSaver.framework/Resources/ScreenSaverEngine.app/Contents/MacOS/ScreenSaverEngine"
     alias vim="mvim -v"
     alias audiorestart="sudo kill `ps -ax | grep 'coreaudiod' | grep 'sbin' |awk '{print $1}'`"
+    alias codeforces="python ~/dev/lib/CodeforcesRunner/cf.py"
 else
     PROMPT="%{$fg[yellow]%}[%n@%m] % ~%{$reset_color%} "    # Make the prompt yellow if i'm not on my home system
 fi
 
 [[ -s "/Users/rafal/.rvm/scripts/rvm" ]] && source "/Users/rafal/.rvm/scripts/rvm"
-
-
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+ PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
