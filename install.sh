@@ -6,3 +6,5 @@ ln -s ~/dot-files/zsh/ ~/.zsh
 ln -s ~/dot-files/zsh/zshrc ~/.zshrc
 ln -s ~/dot-files/ghci ~/.ghci
 ln -s ~/dot-files/gitconfig ~/.gitconfig
+
+cp extra/tomorrow-night-eighties.dvtcolortheme ~/Library/Developer/Xcode/UserData/FontAndColorThemes
