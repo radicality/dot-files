@@ -1,0 +1,46 @@
+"     SETS      "
+"
+set ruler     " show the cursor position all the time
+set showcmd   " display incomplete commands
+set incsearch " do incremental searching
+set backspace=indent,eol,start  " allow backspacing over everything in insert mode
+set number      " line numbers
+set autoindent  " autoindent
+set ignorecase  " for smartcase to work better
+set smartcase   " smart casing when searching
+set wildignorecase 
+set tabstop=2   " Set tabsize
+set softtabstop=2
+set shiftwidth=2
+set expandtab
+
+set clipboard=unnamed
+
+set wrap
+set linebreak
+set nolist
+
+set encoding=utf-8  " Proper encoding
+set showmode
+set cursorline
+set laststatus=2
+
+set history=100" lines of command line history
+set undolevels=100" undo levels
+set visualbell" visual bells
+set noerrorbells" no bells
+set wildmenu" improved command line completion
+
+" Don't use Ex mode, use Q for formatting
+map Q gq
+
+let mapleader = ","
+let maplocalleader = ","
+
+" For quick saving
+vnoremap <leader>w <Esc>:w<CR>
+nnoremap <leader>w <Esc>:w<CR>
+
+" Common misspellings
+ab fro for
+ab teh the
