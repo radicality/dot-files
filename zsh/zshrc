@@ -165,8 +165,7 @@ alias cd..="cd .."
 alias dl="curl -L -O"
 
 # Mac OS X (my home system) specific things
-
-if [[ "$OSTYPE" == "darwin13.0" ]]; then
+if [[ "$OSTYPE" == "darwin14.0" ]]; then
     alias preview="/Applications/Preview.app/Contents/MacOS/Preview"
     alias flushdns="dscacheutil -flushcache"
     alias lock="/System/Library/Frameworks/ScreenSaver.framework/Resources/ScreenSaverEngine.app/Contents/MacOS/ScreenSaverEngine"
