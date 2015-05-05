@@ -132,11 +132,8 @@ extract () {
   fi
 }
 
-
-###
-
-
 ### 	  PATH		###
+export PATH=/Users/rafal/dev/my_scripts:/usr/local/share/python:/usr/local/texlive/2014/bin/x86_64-darwin:/Users/rafal/.cabal/bin:/usr/local/sbin:/usr/local/bin:$PATH
 export PATH=/Users/rafalio/devtools/buck/bin:$PATH
 
  #	ALIASES 	###
