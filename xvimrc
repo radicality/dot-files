@@ -1,3 +1,7 @@
+" Xvim is the Xcode Vim plugin. Don't use the full vimrc but 
+" just this shorter version as XVim is not fully fledged and 
+" doesnt support many things.
+"
 "     SETS      "
 "
 set ruler     " show the cursor position all the time

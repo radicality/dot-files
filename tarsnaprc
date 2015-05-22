@@ -1,0 +1,5 @@
+cachedir /usr/local/tarsnap-cache
+keyfile ~/Documents/keys/tarsnap.key
+nodump
+print-stats
+checkpoint-bytes 1G
