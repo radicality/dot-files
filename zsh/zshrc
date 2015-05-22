@@ -73,6 +73,7 @@ PROMPT='%{$fg[cyan]%}[%n@%m]%{$reset_color%}$(git_super_status) %{$fg[cyan]%}~%{
 RPROMPT="[%{$fg[yellow]%}%3c%{$reset_color%}][%{$fg[red]%}%?%{$reset_color%}]" # prompt for right side of screen
 
 export GREP_OPTIONS='--color=auto'
+export EDITOR=vim
 
 #------------------------------------------
 # Key Bindings
@@ -96,12 +97,10 @@ bindkey -v # Because vim
 setopt no_list_beep
 
 ### 	  PATH		###
-export PATH=/Users/rafal/dev/my_scripts:/usr/local/share/python:/usr/local/texlive/2013/bin/x86_64-darwin:/Users/rafal/.cabal/bin:/usr/local/sbin:/usr/local/bin:$PATH
-export PYTHONPATH=/usr/local/lib/python:$PYTHONPATH
-export PYTHONSTARTUP=~/.pythonrc
+export PATH=/Users/rafal/dev/my_scripts:/usr/local/share/python:/usr/local/texlive/2014/bin/x86_64-darwin:/Users/rafal/.cabal/bin:/usr/local/sbin:/usr/local/bin:$PATH
+export PATH=/Users/rafalio/devtools/buck/bin:$PATH
 
  #	ALIASES 	###
-
 alias vi='vim'
 alias ls='ls -l'
 alias la='ls -la'
@@ -124,7 +123,10 @@ alias cp="cp -i"
 alias cd..="cd .."
 alias dl="curl -L -O"
 
+alias damnyouxcode='pkill -f Xcode ; sleep 0.5 ; open /Applications/Xcode.app'
+
 # Mac OS X (my home system) specific things
+
 if [[ "$OSTYPE" == "darwin14.0" ]]; then
     alias preview="/Applications/Preview.app/Contents/MacOS/Preview"
     alias flushdns="dscacheutil -flushcache"
