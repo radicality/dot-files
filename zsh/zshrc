@@ -99,6 +99,7 @@ setopt no_list_beep
 ### 	  PATH		###
 export PATH=/Users/rafal/dev/my_scripts:/usr/local/share/python:/usr/local/texlive/2014/bin/x86_64-darwin:/Users/rafal/.cabal/bin:/usr/local/sbin:/usr/local/bin:$PATH
 export PATH=/Users/rafalio/devtools/buck/bin:$PATH
+export PATH=/Users/rafalio/dev/scripts:$PATH
 
  #	ALIASES 	###
 alias vi='vim'
@@ -124,6 +125,8 @@ alias cd..="cd .."
 alias dl="curl -L -O"
 
 alias damnyouxcode='pkill -f Xcode ; sleep 0.5 ; open /Applications/Xcode.app'
+alias bpm='buck project messenger --without-tests'
+alias bpma='buck project pma --without-tests'
 
 # Mac OS X (my home system) specific things
 
