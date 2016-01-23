@@ -32,6 +32,8 @@ Plugin 'pbrisbin/html-template-syntax'
 " Bundle 'Rip-Rip/clang_complete'
 " Bundle 'edkolev/tmuxline.vim'
 " Plugin 'eagletmt/ghcmod-vim'
+"
+Plugin 'rizzatti/dash.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -72,18 +74,21 @@ set laststatus=2
 "set textwidth=0
 "set wrapmargin=0
 
-set history=100" lines of command line history
-set undolevels=100" undo levels
-set title    " set the terminals title
-set visualbell" visual bells
-set noerrorbells" no bells
-set wildmenu" improved command line completion
+set scrolloff=10          " How much to scroll to the bottom
 
-set backup" keep a backup file
-set backupdir=~/.vim_backups" backup files location
-set directory=~/.vim_swaps" swap files location
 
-set cm=blowfish "encryption algo
+set history=100           " lines of command line history
+set undolevels=100        " undo levels
+set title                 " set the terminals title
+set visualbell            " visual bells
+set noerrorbells          " no bells
+set wildmenu              " improved command line completion
+
+set backup                " keep a backup file
+set backupdir=~/.vim_backups    " backup files location
+set directory=~/.vim_swaps      " swap files location
+
+set cm=blowfish           "encryption algo
 
 " Don't use Ex mode, use Q for formatting
 map Q gq
@@ -92,13 +97,14 @@ map Q gq
 " so that you can undo CTRL-U after inserting a line break.
 inoremap <C-U> <C-G>u<C-U>
 
-
 let mapleader = ","
 let maplocalleader = ","
 
 " For quick saving
 vnoremap <leader>w <Esc>:w<CR>
 nnoremap <leader>w <Esc>:w<CR>
+
+nnoremap <leader>d <Esc>:Dash<CR>
 
 nmap <F8> a<C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR><Esc>
 imap <F8> <C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR>
@@ -122,30 +128,16 @@ let g:tagbar_ctags_bin = "/usr/local/Cellar/ctags/5.8/bin/ctags"
 let g:airline_theme="murmur"
 let g:airline_powerline_fonts = 1
 
-" clang stuff for obj-c
-
-let g:clang_complete_auto = 0 
-let g:clang_use_library = 1
-let g:clang_periodic_quickfix = 0
-let g:clang_close_preview = 1
-
-" For Objective-C, this needs to be active, otherwise multi-parameter methods won't be completed correctly
-let g:clang_snippets = 1
-
-" Snipmate does not work anymore, ultisnips is the recommended plugin
-" let g:clang_snippets_engine = 'ultisnips'
-
-" This might change depending on your installation
-let g:clang_exec = '/usr/bin/clang'
-let g:clang_library_path = '/Users/rafalio/fbobjc-hg/Tools/clang/libclang/lib/libclang.dylib'
-
-
 " Common misspellings
 ab fro for
 ab teh the
 
 set guioptions-=r
 set guioptions-=L
+
+" Turn on spelling for markdown files
+autocmd BufRead,BufNewFile *.md setlocal spell
+autocmd BufRead,BufNewFile *.markdown setlocal spell
 
 if has('mouse')
   set mouse=a
@@ -155,7 +147,7 @@ if &t_Co > 2 || has("gui_running")
   syntax on
   set hlsearch
   set gfn=Monaco:h13
-  set guicursor+=a:blinkon0 " no cursos blinking
+  set guicursor+=a:blinkon0         " no cursor blinking
   colorscheme Tomorrow-Night-Eighties
 endif
 

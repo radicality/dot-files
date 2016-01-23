@@ -67,7 +67,8 @@ autoload colors; colors
 export CLICOLOR=1
 
 export LS_OPTIONS='--color=auto'
-export LSCOLORS=Exfxcxdxbxegedabagacad
+#export LSCOLORS=Exfxcxdxbxegedabagacad
+eval "$( gdircolors -b $HOME/.dircolors )"
 
 PROMPT='%{$fg[cyan]%}[%n@%m]%{$reset_color%}$(git_super_status) %{$fg[cyan]%}~%{$reset_color%} '
 RPROMPT="[%{$fg[yellow]%}%3c%{$reset_color%}][%{$fg[red]%}%?%{$reset_color%}]" # prompt for right side of screen
@@ -103,8 +104,8 @@ export PATH=/Users/rafalio/dev/scripts:$PATH
 
  #	ALIASES 	###
 alias vi='vim'
-alias ls='ls -l'
-alias la='ls -la'
+alias ls='gls -lXh --group-directories-first $LS_OPTIONS'
+alias la='gls -laXh --group-directories-first $LS_OPTIONS'
 alias psx="ps aux | grep -i" 
 alias reload="source ~/.zshrc"
 alias ltmux="tmux attach || tmux new"
