@@ -58,6 +58,7 @@ set tabstop=2   " Set tabsize
 set softtabstop=2
 set shiftwidth=2
 set expandtab
+set cryptmethod=blowfish2 " Encrypt a file with :X
 
 set clipboard=unnamed
 
