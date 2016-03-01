@@ -144,3 +144,6 @@ fi
 
 [[ -s "/Users/rafal/.rvm/scripts/rvm" ]] && source "/Users/rafal/.rvm/scripts/rvm"
  PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+
+alias llvm-config="llvm-config-3.5"
+

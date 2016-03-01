@@ -34,6 +34,7 @@ Plugin 'pbrisbin/html-template-syntax'
 " Plugin 'eagletmt/ghcmod-vim'
 "
 Plugin 'rizzatti/dash.vim'
+Plugin 'JamshedVesuna/vim-markdown-preview'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
