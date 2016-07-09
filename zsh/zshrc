@@ -74,7 +74,7 @@ PROMPT='%{$fg[cyan]%}[%n@%m]%{$reset_color%}$(git_super_status) %{$fg[cyan]%}~%{
 RPROMPT="[%{$fg[yellow]%}%3c%{$reset_color%}][%{$fg[red]%}%?%{$reset_color%}]" # prompt for right side of screen
 
 export GREP_OPTIONS='--color=auto'
-export EDITOR=vim
+export EDITOR='nvim'
 
 #------------------------------------------
 # Key Bindings
@@ -101,9 +101,10 @@ setopt no_list_beep
 export PATH=/Users/rafal/dev/my_scripts:/usr/local/share/python:/usr/local/texlive/2014/bin/x86_64-darwin:/Users/rafal/.cabal/bin:/usr/local/sbin:/usr/local/bin:$PATH
 export PATH=/Users/rafalio/devtools/buck/bin:$PATH
 export PATH=/Users/rafalio/dev/scripts:$PATH
+export PATH=/Users/rafal/.local/bin:$PATH
 
  #	ALIASES 	###
-alias vi='vim'
+alias vi='vi'
 alias ls='gls -lXh --group-directories-first $LS_OPTIONS'
 alias la='gls -laXh --group-directories-first $LS_OPTIONS'
 alias psx="ps aux | grep -i" 
@@ -135,7 +136,7 @@ if [[ "$OSTYPE" == "darwin14.0" ]]; then
     alias preview="/Applications/Preview.app/Contents/MacOS/Preview"
     alias flushdns="dscacheutil -flushcache"
     alias lock="/System/Library/Frameworks/ScreenSaver.framework/Resources/ScreenSaverEngine.app/Contents/MacOS/ScreenSaverEngine"
-    alias vim="mvim -v"
+    alias vim="nvim"
     alias audiorestart="sudo kill `ps -ax | grep 'coreaudiod' | grep 'sbin' |awk '{print $1}'`"
     alias codeforces="python ~/dev/lib/CodeforcesRunner/cf.py"
 else

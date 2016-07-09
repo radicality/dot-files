@@ -36,6 +36,10 @@ Plugin 'pbrisbin/html-template-syntax'
 Plugin 'rizzatti/dash.vim'
 Plugin 'JamshedVesuna/vim-markdown-preview'
 
+Plugin 'kana/vim-textobj-user'
+
+Plugin 'isovector/ghci.vim'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required

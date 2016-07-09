@@ -4,13 +4,35 @@ endfunction
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'chriskempson/vim-tomorrow-theme'
 Plug 'scrooloose/nerdtree'
+Plug 'ervandew/supertab'
+Plug 'scrooloose/nerdcommenter'
+Plug 'danro/rename.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'kien/ctrlp.vim'
 Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
+Plug 'JamshedVesuna/vim-markdown-preview'
+Plug 'majutsushi/tagbar'
+Plug 'vim-pandoc/vim-pandoc-syntax'
+Plug 'vim-pandoc/vim-pandoc'
+Plug 'scrooloose/syntastic'
+Plug 'neomake/neomake'
+
+" Colors/themes
+Plug 'morhetz/gruvbox'
+Plug 'chriskempson/vim-tomorrow-theme'
+
+"Plug 'Shougo/vimproc.vim'
+
+" Haskell
 Plug 'eagletmt/neco-ghc'
+Plug 'Shougo/vimproc.vim', {'do' : 'make'}
+Plug 'eagletmt/ghcmod-vim'
+Plug 'neovimhaskell/haskell-vim'
+
+"Plug 'bitc/vim-hdevtools'
+
 
 call plug#end()
 
@@ -116,5 +138,29 @@ else
   set autoindent  "if no autoindent
 endif
 
-
 let g:airline_powerline_fonts = 1
+
+" Disable haskell-vim omnifunc
+let g:haskellmode_completion_ghc = 0
+autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
+let g:necoghc_enable_detailed_browse = 1
+let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
+
+au FileType haskell nnoremap <buffer> <leader>t :HdevtoolsType<CR>
+au FileType haskell autocmd! BufWritePost * Neomake
+
+
+" Syntastic haskell
+
+map <Leader>s :SyntasticToggleMode<CR>
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 0
+let g:syntastic_check_on_open = 0
+let g:syntastic_check_on_wq = 0
+
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
