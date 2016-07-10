@@ -164,3 +164,9 @@ let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+
+
+map <silent> tw :GhcModTypeInsert<CR>
+map <silent> ts :GhcModSplitFunCase<CR>
+map <silent> tq :GhcModType<CR>
+map <silent> te :GhcModTypeClear<CR>
