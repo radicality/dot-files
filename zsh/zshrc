@@ -1,7 +1,6 @@
 #------------------------------------------
 # Options
-#------------------------------------------
-
+#------------------------------------------ 
 source ~/.zsh/git-prompt/zshrc.sh
 
 # why would you type 'cd dir' if you could just type 'dir'?
@@ -111,6 +110,12 @@ alias psx="ps aux | grep -i"
 alias reload="source ~/.zshrc"
 alias ltmux="tmux attach || tmux new"
 
+HISTSIZE=10000
+SAVEHIST=10000
+HISTFILE=~/.zsh_history
+setopt APPEND_HISTORY SHARE_HISTORY
+bindkey "^R" history-incremental-search-backward
+
 # SSH
 
 alias hostmonster="ssh vlixterc@vlixter.com"
@@ -132,7 +137,7 @@ alias bpma='buck project pma --without-tests'
 
 # Mac OS X (my home system) specific things
 
-if [[ "$OSTYPE" == "darwin14.0" ]]; then
+if [[ "$OSTYPE" == "darwin16.0" ]]; then
     alias preview="/Applications/Preview.app/Contents/MacOS/Preview"
     alias flushdns="dscacheutil -flushcache"
     alias lock="/System/Library/Frameworks/ScreenSaver.framework/Resources/ScreenSaverEngine.app/Contents/MacOS/ScreenSaverEngine"
@@ -147,4 +152,4 @@ fi
  PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 alias llvm-config="llvm-config-3.5"
-
+export JAVA_HOME=$(/usr/libexec/java_home)
