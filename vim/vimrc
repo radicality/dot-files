@@ -34,7 +34,7 @@ Plugin 'pbrisbin/html-template-syntax'
 " Plugin 'eagletmt/ghcmod-vim'
 "
 Plugin 'rizzatti/dash.vim'
-Plugin 'JamshedVesuna/vim-markdown-preview'
+" Plugin 'JamshedVesuna/vim-markdown-preview'
 
 Plugin 'kana/vim-textobj-user'
 

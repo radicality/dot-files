@@ -1,13 +1,20 @@
-#------------------------------------------
+#------------------------------------------ 
 # Options
 #------------------------------------------ 
 source ~/.zsh/git-prompt/zshrc.sh
 
 # why would you type 'cd dir' if you could just type 'dir'?
-setopt AUTO_CD
+setopt auto_cd
 
-# If I type cd and then cd again, only save the last one
-setopt HIST_IGNORE_DUPS
+# History
+HISTSIZE=50000
+SAVEHIST=$HISTSIZE
+HISTFILE=~/.zsh_history
+setopt append_history
+setopt share_history
+setopt extended_history
+setopt hist_ignore_dups
+bindkey "^R" history-incremental-search-backward
 
 zmodload zsh/complist
 autoload -U compinit && compinit
@@ -74,6 +81,7 @@ RPROMPT="[%{$fg[yellow]%}%3c%{$reset_color%}][%{$fg[red]%}%?%{$reset_color%}]" #
 
 export GREP_OPTIONS='--color=auto'
 export EDITOR='nvim'
+export GPG_TTY=$(tty)
 
 #------------------------------------------
 # Key Bindings
@@ -97,10 +105,8 @@ bindkey -v # Because vim
 setopt no_list_beep
 
 ### 	  PATH		###
-export PATH=/Users/rafal/dev/my_scripts:/usr/local/share/python:/usr/local/texlive/2014/bin/x86_64-darwin:/Users/rafal/.cabal/bin:/usr/local/sbin:/usr/local/bin:$PATH
-export PATH=/Users/rafalio/devtools/buck/bin:$PATH
-export PATH=/Users/rafalio/dev/scripts:$PATH
-export PATH=/Users/rafal/.local/bin:$PATH
+export PATH=/Users/rafal/dev/my_scripts:/usr/local/sbin:/usr/local/bin:$PATH
+export PATH=/Applications/Muse/:$PATH
 
  #	ALIASES 	###
 alias vi='vi'
@@ -110,11 +116,6 @@ alias psx="ps aux | grep -i"
 alias reload="source ~/.zshrc"
 alias ltmux="tmux attach || tmux new"
 
-HISTSIZE=10000
-SAVEHIST=10000
-HISTFILE=~/.zsh_history
-setopt APPEND_HISTORY SHARE_HISTORY
-bindkey "^R" history-incremental-search-backward
 
 # SSH
 
@@ -131,13 +132,13 @@ alias cp="cp -i"
 alias cd..="cd .."
 alias dl="curl -L -O"
 
-alias damnyouxcode='pkill -f Xcode ; sleep 0.5 ; open /Applications/Xcode.app'
-alias bpm='buck project messenger --without-tests'
-alias bpma='buck project pma --without-tests'
+alias bright='ddcctl -d 1 -b '
+alias bright-hi='ddcctl -d 1 -b 75'
+alias bright-lo='ddcctl -d 1 -b 25'
 
 # Mac OS X (my home system) specific things
 
-if [[ "$OSTYPE" == "darwin16.0" ]]; then
+if [[ "$OSTYPE" == "darwin17.0" ]]; then
     alias preview="/Applications/Preview.app/Contents/MacOS/Preview"
     alias flushdns="dscacheutil -flushcache"
     alias lock="/System/Library/Frameworks/ScreenSaver.framework/Resources/ScreenSaverEngine.app/Contents/MacOS/ScreenSaverEngine"
@@ -153,3 +154,32 @@ fi
 
 alias llvm-config="llvm-config-3.5"
 export JAVA_HOME=$(/usr/libexec/java_home)
+
+function extract {
+  if [ -z "$1" ]; then
+    echo "Usage: extract <path/file_name>.<zip|rar|bz2|gz|tar|tbz2|tgz|Z|7z|xz|ex|tar.bz2|tar.gz|tar.xz>"
+  else
+    if [ -f $1 ]; then
+      case $1 in
+        *.tar.bz2)   tar xvjf $1    ;;
+        *.tar.gz)    tar xvzf $1    ;;
+        *.tar.xz)    tar xvJf $1    ;;
+        *.lzma)      unlzma $1      ;;
+        *.bz2)       bunzip2 $1     ;;
+        *.rar)       unrar x -ad $1 ;;
+        *.gz)        gunzip $1      ;;
+        *.tar)       tar xvf $1     ;;
+        *.tbz2)      tar xvjf $1    ;;
+        *.tgz)       tar xvzf $1    ;;
+        *.zip)       unzip $1       ;;
+        *.Z)         uncompress $1  ;;
+        *.7z)        7z x $1        ;;
+        *.xz)        unxz $1        ;;
+        *.exe)       cabextract $1  ;;
+        *)           echo "extract: '$1' - unknown archive method" ;;
+      esac
+    else
+      echo "$1 - file does not exist"
+    fi
+  fi
+}

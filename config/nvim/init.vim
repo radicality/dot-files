@@ -23,8 +23,6 @@ Plug 'neomake/neomake'
 Plug 'morhetz/gruvbox'
 Plug 'chriskempson/vim-tomorrow-theme'
 
-"Plug 'Shougo/vimproc.vim'
-
 " Haskell
 Plug 'eagletmt/neco-ghc'
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}
@@ -104,6 +102,8 @@ nnoremap <Leader>b :CtrlPBuffer<CR>
 " " Open most recently used files
 nnoremap <Leader>f :CtrlPMRUFiles<CR>
 
+imap ii <Esc>
+
 " Common misspellings
 ab fro for
 ab teh the
@@ -124,7 +124,8 @@ if &t_Co > 2 || has("gui_running")
   set hlsearch
   set gfn=Monaco:h13
   set guicursor+=a:blinkon0         " no cursor blinking
-  colorscheme Tomorrow-Night-Eighties
+  colorscheme gruvbox
+  set background=dark
 endif
 
 if has("autocmd")
@@ -144,10 +145,11 @@ let g:airline_powerline_fonts = 1
 let g:haskellmode_completion_ghc = 0
 autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
 let g:necoghc_enable_detailed_browse = 1
-let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
+
+"let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
 
 au FileType haskell nnoremap <buffer> <leader>t :HdevtoolsType<CR>
-au FileType haskell autocmd! BufWritePost * Neomake
+"au FileType haskell autocmd! BufWritePost * Neomake
 
 
 " Syntastic haskell
@@ -164,6 +166,8 @@ let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+
+"let g:deoplete#enable_at_startup = 1
 
 
 map <silent> tw :GhcModTypeInsert<CR>

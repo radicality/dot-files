@@ -2,3 +2,6 @@
 vim/.netrwhist
 vim/spell/
 vim/bundle/
+vim/plugged
+config/nvim
+config/nvim/spell/
