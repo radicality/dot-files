@@ -80,7 +80,7 @@ PROMPT='%{$fg[cyan]%}[%n@%m]%{$reset_color%}$(git_super_status) %{$fg[cyan]%}~%{
 RPROMPT="[%{$fg[yellow]%}%3c%{$reset_color%}][%{$fg[red]%}%?%{$reset_color%}]" # prompt for right side of screen
 
 export GREP_OPTIONS='--color=auto'
-export EDITOR='nvim'
+export EDITOR='vim'
 export GPG_TTY=$(tty)
 
 #------------------------------------------
@@ -141,7 +141,7 @@ if [[ "$OSTYPE" =~ "^darwin" ]]; then
     alias preview="/Applications/Preview.app/Contents/MacOS/Preview"
     alias flushdns="dscacheutil -flushcache"
     alias lock="/System/Library/Frameworks/ScreenSaver.framework/Resources/ScreenSaverEngine.app/Contents/MacOS/ScreenSaverEngine"
-    alias vim="nvim"
+    alias vim="mvim -v"
     alias audiorestart="sudo kill `ps -ax | grep 'coreaudiod' | grep 'sbin' |awk '{print $1}'`"
     alias codeforces="python ~/dev/lib/CodeforcesRunner/cf.py"
 else
