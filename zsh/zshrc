@@ -136,9 +136,8 @@ alias bright='ddcctl -d 1 -b '
 alias bright-hi='ddcctl -d 1 -b 75'
 alias bright-lo='ddcctl -d 1 -b 25'
 
-# Mac OS X (my home system) specific things
-
-if [[ "$OSTYPE" == "darwin17.0" ]]; then
+# Mac OS X local specific things
+if [[ "$OSTYPE" =~ "^darwin" ]]; then
     alias preview="/Applications/Preview.app/Contents/MacOS/Preview"
     alias flushdns="dscacheutil -flushcache"
     alias lock="/System/Library/Frameworks/ScreenSaver.framework/Resources/ScreenSaverEngine.app/Contents/MacOS/ScreenSaverEngine"
@@ -146,11 +145,8 @@ if [[ "$OSTYPE" == "darwin17.0" ]]; then
     alias audiorestart="sudo kill `ps -ax | grep 'coreaudiod' | grep 'sbin' |awk '{print $1}'`"
     alias codeforces="python ~/dev/lib/CodeforcesRunner/cf.py"
 else
-    PROMPT="%{$fg[yellow]%}[%n@%m] % ~%{$reset_color%} "    # Make the prompt yellow if i'm not on my home system
+    PROMPT="%{$fg[yellow]%}[%n@%m] % ~%{$reset_color%} "    # Make the prompt yellow if i'm not on my home system but some server
 fi
-
-[[ -s "/Users/rafal/.rvm/scripts/rvm" ]] && source "/Users/rafal/.rvm/scripts/rvm"
- PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 alias llvm-config="llvm-config-3.5"
 export JAVA_HOME=$(/usr/libexec/java_home)
