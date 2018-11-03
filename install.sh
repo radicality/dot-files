@@ -1,5 +1,6 @@
 #!/bin/bash
 
+ln -shFv ~/dot-files/inputrc ~/.inputrc
 ln -shFv ~/dot-files/vim ~/.vim
 ln -shFv ~/dot-files/vim/vimrc ~/.vimrc
 ln -shFv ~/dot-files/zsh/ ~/.zsh
