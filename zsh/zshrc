@@ -105,7 +105,7 @@ bindkey -v # Because vim
 setopt no_list_beep
 
 ### 	  PATH		###
-export PATH=/Users/rafal/dev/my_scripts:/usr/local/sbin:/usr/local/bin:$PATH
+export PATH=/Users/rafal/dev/my_scripts:/usr/local/sbin:/usr/local/bin:/Users/rafalio/bin:$PATH
 export PATH=/Applications/Muse/:$PATH
 
  #	ALIASES 	###
@@ -113,7 +113,7 @@ alias vi='vi'
 alias ls='gls -lXh --group-directories-first $LS_OPTIONS'
 alias la='gls -laXh --group-directories-first $LS_OPTIONS'
 alias psx="ps aux | grep -i" 
-alias reload="source ~/.zshrc"
+alias reload="exec zsh -l"
 alias ltmux="tmux attach || tmux new"
 
 
@@ -149,7 +149,7 @@ else
 fi
 
 alias llvm-config="llvm-config-3.5"
-export JAVA_HOME=$(/usr/libexec/java_home)
+export JAVA_HOME=`/usr/libexec/java_home -v 11`
 
 function extract {
   if [ -z "$1" ]; then
@@ -179,3 +179,40 @@ function extract {
     fi
   fi
 }
+
+function fastCommit {
+  if [ -z "$1" ]; then
+    echo "Usage: fastCommit <commitMessage> <?summary> <?testplan>. This will do a lint, commit with the accept2ship tag, and then submit to phabricator"
+  else
+    if [[ -n $2 ]]; then
+      summary="$1. $2"
+    else
+      summary="$1"
+    fi
+
+    if [[ -n $3 ]]; then
+      test_plan="$3"
+    else
+      test_plan="None"
+    fi
+
+    msg="[iris] $1
+
+Summary: $summary | #accept2ship
+
+Test Plan: $test_plan 
+
+Reviewers: IrisTeam
+
+Subscribers:
+
+Tasks:
+
+Tags:"
+    echo $msg
+    (yes | arc lint)
+    hg commit -Am "${msg}"
+    jf submit --update-fields
+  fi
+}
+
